@@ -1,0 +1,11 @@
+# The headings in brackets are group names, which are used in classifying hosts
+# and deciding what hosts you are controlling at what times and for what
+# purpose.
+
+# Not sure how to distinguish between my machine and the kids machines in this
+# file. Might be able to use tags.
+
+
+[server]
+
+[workstation]
