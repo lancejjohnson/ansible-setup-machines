@@ -10,11 +10,11 @@
       when: ansible_distribution in ["Debian", "Pop!_OS", "Ubuntu"]
 
 # Run roles
-# - hosts: localhost
-#   become: true
-#   roles:
-#     - common
-#     - workstation-dev
+- hosts: localhost
+  become: true
+  roles:
+    - common
+    # - workstation-dev
 
 # # Run roles
 # - hosts: all
@@ -46,11 +46,3 @@
         autoremove: yes
         purge: yes
       when: ansible_distribution in ["Debian", "Pop!_OS", "Ubuntu"]
-
-    - name: autoremove orphaned packages
-      tags: always
-      apt:
-        autoremove: yes
-        purge: yes
-      when: ansible_distribution in ["Debian", "Pop!_OS", "Ubuntu"]
-

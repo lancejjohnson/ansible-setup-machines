@@ -2,7 +2,7 @@
 ---
 # Establish myself as a user
 # Install all of the software packages that I need on my machine
-tasks:
+- tasks:
   - name: Install htop
     tags: packages,system
     package:
