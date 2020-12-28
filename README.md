@@ -4,7 +4,11 @@ Ansible configuration for setting up machines.
 
 Heavily inspired by: [LearnLinuxTV][LearnLinuxTV]
 
-See also ["How to manage your workstation configuration with Ansible"][manage]
+See also
+
+- ["How to manage your workstation configuration with Ansible"][manage]
+- ["Using Ansible to set up a workstation"][ansible-setup]
+- ["Ansible laptop playbook example"][ansible-laptop]
 
 ## Goals
 
@@ -17,13 +21,25 @@ See also ["How to manage your workstation configuration with Ansible"][manage]
 - Be able to setup raspberry pi workstations
 - Be able to setup raspberry pi servers
 
-## Resources
+## Running Ansible
 
-https://fedoramagazine.org/using-ansible-setup-workstation/
-https://github.com/atomicobject/ansible-laptop-playbook-example
+To run a specific playbook in Ansible:
 
+```sh
+ansible-playbook -K path/to/playbook.yml
+```
 
-### LearnLinuxTV
+To run the full suite:
+
+```sh
+ansible-pull -u https://github.com/lancejjohnson/ansible-setup-machines
+```
+
+For more information and other ways to run Ansible, see:
+
+https://docs.ansible.com/ansible/latest/user_guide/index.html#executing-playbooks
+
+## LearnLinuxTV
 
 Structure of LearnLinuxTV setup.
 
@@ -128,4 +144,7 @@ Structure of LearnLinuxTV setup.
 
 [LearnLinuxTV]:https://github.com/LearnLinuxTV/personal_ansible_desktop_configs
 [manage]:https://opensource.com/article/18/3/manage-workstation-ansible
+[ansible-setup]:https://fedoramagazine.org/using-ansible-setup-workstation/
+[ansible-laptop]:https://github.com/atomicobject/ansible-laptop-playbook-example
+
 
