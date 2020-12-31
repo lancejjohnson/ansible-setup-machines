@@ -43,6 +43,11 @@
       tags: always
       apt:
         autoclean: yes
+      when: ansible_distribution in ["Debian", "Pop!_OS", "Ubuntu"]
+
+    - name: autoremove package cache
+      tags: always
+      apt:
         autoremove: yes
         purge: yes
       when: ansible_distribution in ["Debian", "Pop!_OS", "Ubuntu"]
