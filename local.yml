@@ -14,7 +14,7 @@
   become: true
   roles:
     - common
-    # - workstation-dev
+    - workstation-dev
 
 # # Run roles
 # - hosts: all

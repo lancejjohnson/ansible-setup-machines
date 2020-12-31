@@ -5,7 +5,6 @@
 # up.
 # TODO: For any mac machine, set up homebrew
 ---
-- tasks:
-  - name: Hello world
-    debug:
+- name: Hello world
+  debug:
     msg: "common play ran"
