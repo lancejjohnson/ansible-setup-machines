@@ -1,0 +1,12 @@
+- name: Install zsh
+  become: yes
+  dnf:
+    name: zsh
+    state: latest
+
+# TODO: Do this
+# - name: Set default shell
+#   become: yes
+#   user:
+#     name: lance
+#     shell: /usr/bin/zsh

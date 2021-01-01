@@ -8,6 +8,7 @@
 
 # TODO: this is a user specific directory. How to generalize?
 - name: Install minpac for neovim
+  become_user: lance
   ansible.builtin.git:
     repo: 'https://github.com/k-takata/minpac.git'
     dest: '/home/lance/.config/nvim/pack/minpac/opt/minpac'

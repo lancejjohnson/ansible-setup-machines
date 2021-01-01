@@ -1,3 +1,45 @@
 - name: Just saying hello for now
   debug:
     msg: Hello from lance prerequisites
+
+- name: lance > prerequisites > remove standard home directories
+  ansible.builtin.file:
+    path: /home/lance/{{ item }}
+    state: absent
+  loop: 
+    - Desktop
+    - Documents
+    - Downloads
+    - Music
+    - Pictures
+    - Public
+    - Templates
+    - Videos
+
+- name: lance > prerequisites > establish home directories
+  ansible.builtin.file:
+    path: /home/lance/{{ item.dir }}
+    state: directory
+    owner: lance
+    group: lance
+    mode: 0700
+  loop:
+    - { dir: .config }
+    - { dir: code }
+    - { dir: code/lancejjohnson }
+    - { dir: desktop }
+    - { dir: documents }
+    - { dir: downloads }
+    - { dir: music }
+    - { dir: pictures }
+    - { dir: public }
+    - { dir: templates }
+    - { dir: videos }
+
+- name: lance > prerequisites > establish xdg-user-dirs
+  copy:
+    src: files/user-dirs.dirs
+    dest: /home/lance/.config/user-dirs.dirs
+    owner: lance
+    group: lance
+    mode: 0600

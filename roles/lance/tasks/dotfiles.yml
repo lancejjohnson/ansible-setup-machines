@@ -1,0 +1,40 @@
+- name: ensure directory
+  ansible.builtin.file:
+    path: /home/lance/code/lancejjohnson
+    state: directory
+
+- name: remove exisitng files
+  ansible.builtin.file:
+    path: /home/lance/.gitconfig
+    state: absent
+
+- name: clone dotfiles
+  become_user: lance
+  ansible.builtin.git:
+    clone: yes
+    dest: /home/lance/code/lancejjohnson/dotfiles
+    force: no
+    repo: https://github.com/lancejjohnson/dotfiles
+
+- name: link dotfiles
+  become_user: lance
+  ansible.builtin.file:
+    src: /home/lance/code/lancejjohnson/dotfiles/{{ item.src }}
+    dest: /home/lance/.{{ item.dest }}
+    state: link
+    owner: lance
+    group: lance
+  loop:
+    - { src: aliases, dest: aliases }
+    - { src: config/nvim/init.vim, dest: config/nvim/init.vim }
+    - { src: config/alacritty, dest: config/alacritty }
+    - { src: config/starship.toml, dest: config/starship.toml }
+    - { src: ctags.d, dest: ctags.d }
+    - { src: gitconfig, dest: gitconfig }
+    - { src: gitignore_global, dest: gitignore_global }
+    - { src: packages.vim, dest: packages.vim }
+    - { src: tmux.conf, dest: tmux.conf }
+    - { src: tool-versions, dest: tool-versions }
+    - { src: vimrc, dest: vimrc }
+    - { src: zshrc, dest: zshrc }
+    - { src: zsh, dest: zsh }
