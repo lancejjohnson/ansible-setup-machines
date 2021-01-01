@@ -14,12 +14,17 @@ See also
 
 - Be able to setup my development machine on
   - MacOS
-  - Pop!_OS
+  - Pop!\_OS
   - Ubuntu
   - Fedora
 - Be able to setup a machine for the kids with users for all of them
 - Be able to setup raspberry pi workstations
 - Be able to setup raspberry pi servers
+
+OS specific installations
+OS specific modifications/tweeks
+dev software
+peronal software
 
 ## Running Ansible
 

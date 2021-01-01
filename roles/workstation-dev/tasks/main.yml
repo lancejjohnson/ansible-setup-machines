@@ -1,11 +1,15 @@
 ---
 # Establish myself as a user
 # Install all of the software packages that I need on my machine
-- name: run this on OSX type systems
-  debug:
-    msg: "hello from {{ ansible_distribution }}"
-  when: ansible_distribution == 'MacOSX'
-
-- name: Print all available facts
-  ansible.builtin.debug:
-    var: ansible_facts
+# - name: run this on OSX type systems
+#   debug:
+#     msg: "hello from {{ ansible_distribution }}"
+#   when: ansible_distribution == 'MacOSX'
+# 
+# - name: Print all available facts
+#   ansible.builtin.debug:
+#     var: ansible_facts
+    
+- import_tasks: software/packages.yml
+- import_tasks: software/codium.yml
+- import_tasks: software/ctags.yml

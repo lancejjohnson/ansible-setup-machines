@@ -1,0 +1,9 @@
+# - name: Establish directories
+
+# - name: Clone dotfiles
+#   ansible.builtin.git:
+#     repo: 'https://github.com/lancejjohnson/dotfiles'
+#     dest: '/home/lance/code/lancejjohnson/dotfiles'
+# 
+# - name: Link dotfiles
+
