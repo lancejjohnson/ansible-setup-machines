@@ -9,6 +9,7 @@ See also
 - ["How to manage your workstation configuration with Ansible"][manage]
 - ["Using Ansible to set up a workstation"][ansible-setup]
 - ["Ansible laptop playbook example"][ansible-laptop]
+- https://dev.to/iancleary/automating-your-desktop-with-ansible-20jk
 
 ## Goals
 

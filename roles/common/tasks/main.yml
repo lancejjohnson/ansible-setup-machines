@@ -1,12 +1,7 @@
-# Eventually this will be a "manifest" playbook that simply imports other
-# playbook tasks.
-#
-# This playbooks runs plays that are common no matter what machine is being set
-# up.
-# TODO: For any mac machine, set up homebrew
----
 - name: Hello world
   debug:
     msg: "common play ran"
 
-
+- name: Print all available facts
+  ansible.builtin.debug:
+    var: ansible_facts

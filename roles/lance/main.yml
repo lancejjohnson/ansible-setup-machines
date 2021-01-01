@@ -1,0 +1,23 @@
+# Manifest of lance
+
+- name: Include role - common
+  include_role: 
+    name: common
+
+- name: Run lance - prerequisites
+  import_tasks: tasks/prereqs.yml
+
+- name: Include role - workstation
+  include_role:
+    name: workstation
+
+- name: Include role - developer
+  include_role:
+    name: developer
+
+
+# lance-specific setup, ensure you're a user, setup directories, copy config files
+# include the common role
+# include the workstation role
+# include the developer role
+# include lance specific tasks

@@ -9,6 +9,12 @@
       changed_when: False
       when: ansible_distribution in ["Debian", "Pop!_OS", "Ubuntu"]
 
+    - name: pre-run | update package cache
+      tags: always
+      command: dnf clean expire-cache
+      changed_when: False
+      when: ansible_distribution in ["Fedora"]
+
 # Run roles
 - hosts: localhost
   become: true
@@ -51,3 +57,14 @@
         autoremove: yes
         purge: yes
       when: ansible_distribution in ["Debian", "Pop!_OS", "Ubuntu"]
+    
+    - name: clean up post install
+      tags: always
+      command: dnf clean all
+      when: ansible_distribution in ["Fedora"]
+
+    - name: autoremove
+      tags: always
+      dnf:
+        autoremove: yes
+      when: ansible_distribution in ["Fedora"]
