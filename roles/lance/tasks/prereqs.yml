@@ -1,0 +1,3 @@
+- name: Just saying hello for now
+  debug:
+    msg: Hello from lance prerequisites

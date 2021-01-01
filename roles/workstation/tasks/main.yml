@@ -10,6 +10,5 @@
 #   ansible.builtin.debug:
 #     var: ansible_facts
     
-- import_tasks: software/packages.yml
-- import_tasks: software/codium.yml
-- import_tasks: software/ctags.yml
+# - import_tasks: software/packages.yml
+

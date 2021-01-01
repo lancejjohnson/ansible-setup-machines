@@ -1,7 +1,11 @@
-- name: Hello world
-  debug:
-    msg: "common play ran"
+# - name: Print all available facts
+#   ansible.builtin.debug:
+#     var: ansible_facts
 
-- name: Print all available facts
-  ansible.builtin.debug:
-    var: ansible_facts
+- name: Install desktop environment packages
+  ansible.builtin.dnf:
+    name: "{{ item }}"
+    state: latest
+  loop:
+    - gnome-tweaks
+  when: ansible_distribution == "Fedora"

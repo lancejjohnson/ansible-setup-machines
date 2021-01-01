@@ -1,0 +1,16 @@
+- name: Install software packages
+  ansible.builtin.dnf:
+    name: "{{ item }}"
+    state: latest
+  loop:
+    - automake
+    - autoconf
+    - flatpak
+    - fzf
+    - ncurses-devel
+    - openssl
+    - openssl-devel
+    - ripgrep
+    - tmux
+    - xclip
+

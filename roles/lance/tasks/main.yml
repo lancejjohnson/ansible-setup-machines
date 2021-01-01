@@ -1,5 +1,9 @@
 # Manifest of lance
 
+- name: hi
+  debug:
+    msg: "base dir {{ playbook_dir }}"
+
 - name: Include role - common
   include_role: 
     name: common

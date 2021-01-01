@@ -19,8 +19,9 @@
 - hosts: localhost
   become: true
   roles:
-    - common
-    - workstation-dev
+    - lance
+    # - common
+    # - workstation-dev
 
 # # Run roles
 # - hosts: all
@@ -63,8 +64,9 @@
       command: dnf clean all
       when: ansible_distribution in ["Fedora"]
 
-    - name: autoremove
-      tags: always
-      dnf:
-        autoremove: yes
-      when: ansible_distribution in ["Fedora"]
+    # TODO: Put this back
+    # - name: autoremove
+    #   tags: always
+    #   dnf:
+    #     autoremove: yes
+    #   when: ansible_distribution in ["Fedora"]
