@@ -49,3 +49,14 @@
     - { src: zsh, dest: zsh }
     - { src: config/nvim/init.vim, dest: config/nvim/init.vim }
     - { src: config/nvim/packages.vim, dest: config/nvim/packages.vim }
+
+- name: install binaries and scripts
+  become: yes
+  ansible.builtin.copy:
+    src: /home/lance/code/lancejjohnson/dotfiles/bin/{{ item }}
+    dest: /usr/local/bin/{{ item }}
+    owner: lance
+    group: lance
+    mode: u+rx,g+rx,o-rwx
+  loop:
+    - tat

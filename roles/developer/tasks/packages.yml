@@ -15,3 +15,11 @@
     - tmux
     - xclip
 
+- name: asdf - install
+  become_user: lance
+  ansible.builtin.git:
+    repo: https://github.com/asdf-vm/asdf.git
+    version: v0.8.0
+    dest: /home/lance/.asdf
+    clone: yes
+    force: no
