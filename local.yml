@@ -69,4 +69,4 @@
     #   tags: always
     #   dnf:
     #     autoremove: yes
-    #   when: ansible_distribution in ["Fedora"]
+    #   when: ansible_distribution == "Fedora"

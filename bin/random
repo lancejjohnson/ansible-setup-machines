@@ -5,3 +5,5 @@
 gsettings set org.gnome.desktop.input-sources xkb-options "['caps:ctrl_modifier']"
 
 gsettings set org.gnome.desktop.peripherals.touchpad natural-scroll false
+
+# ln -s /home/lance/code/lancejjohnson/dotfiles/config/nvim/init.vim /home/lance/.config/nvim/init.vim

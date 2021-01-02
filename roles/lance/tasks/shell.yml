@@ -5,8 +5,8 @@
     state: latest
 
 # TODO: Do this
-# - name: Set default shell
-#   become: yes
-#   user:
-#     name: lance
-#     shell: /usr/bin/zsh
+- name: Set default shell
+  become: yes
+  user:
+    name: lance
+    shell: /usr/bin/zsh

@@ -5,6 +5,7 @@
   loop:
     - automake
     - autoconf
+    - curl
     - flatpak
     - fzf
     - ncurses-devel

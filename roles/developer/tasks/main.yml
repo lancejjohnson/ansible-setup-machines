@@ -1,3 +1,4 @@
 - import_tasks: packages.yml
+- import_tasks: playbooks/software/alacritty.yml
 - import_tasks: playbooks/software/codium.yml
 - import_tasks: playbooks/software/ctags.yml

@@ -1,0 +1,13 @@
+- name: install alacritty
+  dnf:
+    name: alacritty
+    state: latest
+  when: ansible_distribution == 'Fedora'
+
+- name: install alacritty
+  community.general.homebrew:
+    name: alacritty
+    state: latest
+    update_homebrew: yes
+  when: ansible_distribution == 'MacOSX'
+

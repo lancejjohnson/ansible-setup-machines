@@ -19,6 +19,11 @@
 - name: configure
   import_tasks: dotfiles.yml
 
+- name: starship
+  import_tasks: playbooks/software/starship.yml
+
+# Tasks I need to organize
+# TODO: Figure out how to install rust
 
 # lance-specific setup, ensure you're a user, setup directories, copy config files
 # include the common role

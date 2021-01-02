@@ -1,7 +1,18 @@
-- name: ensure directory
+- name: ensure code directory
   ansible.builtin.file:
     path: /home/lance/code/lancejjohnson
     state: directory
+    owner: lance
+    group: lance
+
+- name: ensure config directories
+  ansible.builtin.file:
+    path: /home/lance/.config/{{ item }}
+    state: directory
+    owner: lance
+    group: lance
+  loop:
+    - nvim
 
 - name: remove exisitng files
   ansible.builtin.file:
@@ -14,7 +25,7 @@
     clone: yes
     dest: /home/lance/code/lancejjohnson/dotfiles
     force: no
-    repo: https://github.com/lancejjohnson/dotfiles
+    repo: git@github.com:lancejjohnson/dotfiles.git
 
 - name: link dotfiles
   become_user: lance
@@ -26,15 +37,15 @@
     group: lance
   loop:
     - { src: aliases, dest: aliases }
-    - { src: config/nvim/init.vim, dest: config/nvim/init.vim }
     - { src: config/alacritty, dest: config/alacritty }
     - { src: config/starship.toml, dest: config/starship.toml }
     - { src: ctags.d, dest: ctags.d }
     - { src: gitconfig, dest: gitconfig }
     - { src: gitignore_global, dest: gitignore_global }
-    - { src: packages.vim, dest: packages.vim }
     - { src: tmux.conf, dest: tmux.conf }
     - { src: tool-versions, dest: tool-versions }
     - { src: vimrc, dest: vimrc }
     - { src: zshrc, dest: zshrc }
     - { src: zsh, dest: zsh }
+    - { src: config/nvim/init.vim, dest: config/nvim/init.vim }
+    - { src: config/nvim/packages.vim, dest: config/nvim/packages.vim }
