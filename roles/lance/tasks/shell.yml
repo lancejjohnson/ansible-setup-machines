@@ -4,7 +4,6 @@
     name: zsh
     state: latest
 
-# TODO: Do this
 - name: Set default shell
   become: yes
   user:

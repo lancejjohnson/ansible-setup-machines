@@ -19,8 +19,8 @@
 - name: configure
   import_tasks: dotfiles.yml
 
-- name: starship
-  import_tasks: playbooks/software/starship.yml
+- import_tasks: playbooks/software/neovim.yml
+- import_tasks: playbooks/software/starship.yml
 
 # Tasks I need to organize
 # TODO: Figure out how to install rust
