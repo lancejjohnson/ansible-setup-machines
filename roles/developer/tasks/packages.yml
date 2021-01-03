@@ -3,13 +3,14 @@
     name: "{{ item }}"
     state: latest
   loop:
-    - automake
     - autoconf
+    - automake
     - curl
-    - gcc
-    - gcc-c++
     - flatpak
     - fzf
+    - gcc
+    - gcc-c++
+    - htop
     - make
     - ncurses-devel
     - openssl
