@@ -1,41 +1,31 @@
-- name: Include role - common
-  include_role:
+- include_role:
     name: common
 
-- name: Run lance - prerequisites
-  import_tasks: prereqs.yml
+- import_tasks: prereqs.yml
 
-- name: include role - workstation
-  include_role:
+- include_role:
     name: workstation
 
-- name: include role - developer
-  include_role:
+- include_role:
     name: developer
 
-- name: shell
-  import_tasks: shell.yml
-
-- name: configure
-  import_tasks: dotfiles.yml
-
+- import_tasks: shell.yml
+- import_tasks: dotfiles.yml
+- import_tasks: playbooks/software/anki.yml
 - import_tasks: playbooks/software/neovim.yml
+- import_tasks: playbooks/software/pdfreader.yml
 - import_tasks: playbooks/software/starship.yml
 
 - name: tmux > install tmux plugin manager
   become_user: lance
   ansible.builtin.git:
-    clone: yes
     repo: https://github.com/tmux-plugins/tpm
     dest: /home/lance/.tmux/plugins/tpm
+    clone: yes
     force: no
 
-
-# Tasks I need to organize
-# TODO: Figure out how to install rust
-
-# lance-specific setup, ensure you're a user, setup directories, copy config files
-# include the common role
-# include the workstation role
-# include the developer role
-# include lance specific tasks
+- name: chromium
+  become: yes
+  ansible.builtin.dnf:
+    name: chromium
+    state: latest

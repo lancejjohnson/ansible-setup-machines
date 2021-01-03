@@ -1,0 +1,17 @@
+- name: Install okular
+  dnf:
+    name: okular
+    state: latest
+  when: ansible_distribution == "Fedora"
+
+- name: Install pdf mod
+  dnf:
+    name: pdfmod
+    state: latest
+  when: ansible_distribution == "Fedora"
+
+- name: Install Skim
+  community.general.homebrew:
+    name: skim
+    state: latest
+  when: ansible_distribution == "MacOSX"

@@ -1,0 +1,11 @@
+- name: anki - install (fedora)
+  ansible.builtin.dnf:
+    name: anki
+    state: latest
+  when: ansible_distribution == "Fedora"
+
+- name: anki - install (macOS)
+  community.general.homebrew:
+    name: anki
+    state: latest
+  when: ansible_distribution == "MacOSX"

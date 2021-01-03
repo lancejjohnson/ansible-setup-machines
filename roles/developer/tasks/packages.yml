@@ -6,14 +6,18 @@
     - automake
     - autoconf
     - curl
+    - gcc
+    - gcc-c++
     - flatpak
     - fzf
+    - make
     - ncurses-devel
     - openssl
     - openssl-devel
     - ripgrep
     - tmux
     - xclip
+    - zlib-devel
 
 - name: asdf - install
   become_user: lance
