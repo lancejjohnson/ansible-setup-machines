@@ -1,0 +1,5 @@
+---
+- name: Install XCode command line tools
+  become: yes
+  command: xcode-select --install
+  when: ansible_distribution == "MacOSX"

@@ -3,6 +3,22 @@
   dnf:
     name: zsh
     state: latest
+  when: ansible_distribution == "Fedora"
+
+- name: Install zsh
+  become: yes
+  dnf:
+    name: zsh
+    state: latest
+  when: ansible_distribution == "Fedora"
+
+- name: Link zsh
+  become: yes
+  ansible.builtin.file:
+    path: /usr/bin/zsh
+    dest: /usr/local/bin/zsh
+    state: link
+  when: ansible_distribution == "Fedora"
 
 - name: Set default shell
   become: yes
