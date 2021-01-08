@@ -15,6 +15,13 @@
       changed_when: False
       when: ansible_distribution in ["Fedora"]
 
+    - name: pre-run | update package cache
+      become: false
+      tags: always
+      command: brew update
+      changed_when: False
+      when: ansible_distribution == "MacOSX"
+
 # Run roles
 - hosts: localhost
   become: true
@@ -58,11 +65,21 @@
         autoremove: yes
         purge: yes
       when: ansible_distribution in ["Debian", "Pop!_OS", "Ubuntu"]
-    
+
     - name: clean up post install
       tags: always
       command: dnf clean all
       when: ansible_distribution in ["Fedora"]
+
+    - name: autoremove package cache
+      tags: always
+      command: brew autoremove
+      when: ansible_distribution == "MacOSX"
+
+    - name: clean up post install
+      tags: always
+      command: brew cleanup -s
+      when: ansible_distribution == "MacOSX"
 
     # TODO: Put this back
     # - name: autoremove

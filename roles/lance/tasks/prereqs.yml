@@ -1,12 +1,8 @@
-- name: Just saying hello for now
-  debug:
-    msg: Hello from lance prerequisites
-
 - name: lance > prerequisites > remove standard home directories
   ansible.builtin.file:
     path: /home/lance/{{ item }}
     state: absent
-  loop: 
+  loop:
     - Desktop
     - Documents
     - Downloads
@@ -15,6 +11,7 @@
     - Public
     - Templates
     - Videos
+  when: ansible_distribution in ["Debian", "Fedora", "Pop!_OS", "Ubuntu"]
 
 - name: lance > prerequisites > establish home directories
   ansible.builtin.file:
@@ -35,6 +32,7 @@
     - { dir: public }
     - { dir: templates }
     - { dir: videos }
+  when: ansible_distribution in ["Debian", "Fedora", "Pop!_OS", "Ubuntu"]
 
 - name: lance > prerequisites > establish xdg-user-dirs
   copy:
@@ -43,3 +41,4 @@
     owner: lance
     group: lance
     mode: 0600
+  when: ansible_distribution in ["Debian", "Fedora", "Pop!_OS", "Ubuntu"]

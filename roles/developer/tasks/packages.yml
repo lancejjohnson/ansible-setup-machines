@@ -19,6 +19,7 @@
     - tmux
     - xclip
     - zlib-devel
+  when: ansible_distribution == "Fedora"
 
 - name: asdf - install
   become_user: lance
