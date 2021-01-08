@@ -4,4 +4,9 @@ set -e
 
 sudo -v
 
-sudo xcode-select --install
+if [[ "$OSTYPE" == "darwin"* ]]; then
+  sudo xcode-select --install
+else
+  echo "Operating system incompatible with XCode"
+fi
+
