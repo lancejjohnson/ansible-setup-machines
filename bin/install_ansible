@@ -1,0 +1,38 @@
+#!/usr/bin/env bash
+
+set -e
+
+sudo -v
+
+echo "Ensuring Ansible is installed prior to setup"
+
+if [[ "$OSTYPE" == "linux-gnu"* ]]; then
+  dnf install -y ansible
+  ansible-galaxy collection install community.general
+elif [[ "$OSTYPE" == "darwin"* ]]; then
+  current_dir=$(pwd)
+
+  echo "Changing to /usr/local/opt"
+  cd /usr/local/opt
+
+  echo "Downloaded pip installer"
+  curl https://bootstrap.pypa.io/get-pip.py -o get-pip.py
+
+  echo "Installing pip"
+  python get-pip.py --user
+
+  echo "Installing ansible"
+  python -m pip install --user ansible
+
+  echo "Removing pip installer"
+  rm get-pip.py
+
+  echo "Returning to setup directory"
+  cd current_dir
+
+  echo "Installing Ansible community modules"
+  ansible-galaxy collection install community.general
+else
+  echo "Unsupported operating system"
+fi
+
