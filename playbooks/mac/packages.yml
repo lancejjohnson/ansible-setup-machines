@@ -1,0 +1,8 @@
+---
+- name: Install system packages
+  community.general.homebrew:
+    name: {{ item }}
+    state: latest
+    loop:
+      - fzf
+  when: ansible_distribution == "MacOSX"

@@ -1,0 +1,7 @@
+---
+- name: chromium
+  become: yes
+  ansible.builtin.dnf:
+    name: chromium
+    state: latest
+  when: ansible_distribution == "Fedora"

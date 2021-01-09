@@ -1,10 +1,4 @@
-- name: Install zsh
-  become: yes
-  dnf:
-    name: zsh
-    state: latest
-  when: ansible_distribution == "Fedora"
-
+---
 - name: Install zsh
   become: yes
   dnf:
@@ -20,8 +14,14 @@
     state: link
   when: ansible_distribution == "Fedora"
 
-- name: Set default shell
+- name: Install zsh
+  community.general.homebrew:
+    name: zsh
+    state: latest
+  when: ansible_distribution == "MacOSX"
+
+- name: Set zsh as default shell
   become: yes
   user:
     name: lance
-    shell: /usr/bin/zsh
+    shell: /usr/local/bin/zsh

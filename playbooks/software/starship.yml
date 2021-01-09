@@ -1,13 +1,13 @@
 - name: Starship - install (Fedora)
   become: yes
-  ansible.builtin.dnf: 
+  ansible.builtin.dnf:
     name: starship
     state: latest
   when: ansible_distribution == "Fedora"
 
 - name: Starship - install (macOS)
   become: yes
-  community.general.homebrew: 
+  community.general.homebrew:
     name: starship
     state: latest
   when: ansible_distribution == "MacOSX"

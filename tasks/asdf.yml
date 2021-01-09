@@ -1,0 +1,11 @@
+---
+- name: asdf - install
+  git:
+    repo: https://github.com/asdf-vm/asdf.git
+    version: v0.8.0
+    dest: {{ ansible_env.HOME }}/.asdf
+    clone: yes
+    force: no
+
+# TODO: Figure out how to do plugins from script
+# see https://github.com/markosamuli/ansible-asdf/blob/master/tasks/plugins.yml

@@ -89,8 +89,22 @@ Structure of LearnLinuxTV setup.
 |__local.yaml # Not sure what this file is doing
 ```
 
+## My simplified structure
+
+```
+|__playbooks 
+   |__fedora
+      |__packages.yml
+   |__mac
+      |__packages.yml
+|__tasks
+   |__shell.yaml
+|__main.yaml 
+```
+
 ## My setup structure
 
+```
 |__group_vars # Contains files variables by group
 |__host_vars # Contains files with variables by host
 |__playbooks # Contains files that message completion or failure
@@ -139,12 +153,12 @@ Structure of LearnLinuxTV setup.
       |__vars
 |__hosts # defines inventory with group names
 |__local.yaml # Not sure what this file is doing
+```
 
 ## TODO
 
 - [ ] Dev machine is a role
 - [ ] Kids machine is a role 
-
 
 ---
 

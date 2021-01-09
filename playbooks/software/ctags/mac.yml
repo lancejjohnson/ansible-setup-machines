@@ -1,0 +1,6 @@
+---
+- name: universal-ctags install
+  homebrew:
+    name: universal-ctags
+    state: latest
+  when: ansible_os_family == "Darwin"

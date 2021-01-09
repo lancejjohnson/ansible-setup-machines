@@ -1,0 +1,20 @@
+---
+- name: tmux - install tmux
+  homebrew:
+    name: tmux
+    state: latest
+  when: ansible_distribution == "MacOSX"
+
+- name: tmux - install tmux
+  dnf:
+    name: tmux
+    state: latest
+  when: ansible_distribution == "Fedora"
+
+- name: tmux - install tmux plugin manager
+  become_user: lance
+  git:
+    repo: https://github.com/tmux-plugins/tpm
+    dest: {{ ansible_env.HOME}}/.tmux/plugins/tpm
+    clone: yes
+    force: no

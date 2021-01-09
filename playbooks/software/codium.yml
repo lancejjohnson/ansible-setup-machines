@@ -1,21 +1,30 @@
-- name: Codium -> add GPG key for repository
-  become: yes
-  ansible.builtin.rpm_key:
-    key: https://gitlab.com/paulcarroty/vscodium-deb-rpm-repo/raw/master/pub.gpg
-    state: present
+---
+block:
+  - name: codium - add GPG key for repository
+    become: yes
+    ansible.builtin.rpm_key:
+      key: https://gitlab.com/paulcarroty/vscodium-deb-rpm-repo/raw/master/pub.gpg
+      state: present
 
-- name: Codium -> add repository
-  become: yes
-  ansible.builtin.yum_repository:
-    name: gitlab.com_paulcarroty_vscodium_repo
-    description: 'VS Codium community repository'
-    baseurl: https://paulcarroty.gitlab.io/vscodium-deb-rpm-repo/rpms/
-    enabled: yes
-    gpgcheck: yes
-    gpgkey: https://gitlab.com/paulcarroty/vscodium-deb-rpm-repo/raw/master/pub.gpg
-    state: present
+  - name: codium - add repository
+    become: yes
+    ansible.builtin.yum_repository:
+      name: gitlab.com_paulcarroty_vscodium_repo
+      description: 'VS Codium community repository'
+      baseurl: https://paulcarroty.gitlab.io/vscodium-deb-rpm-repo/rpms/
+      enabled: yes
+      gpgcheck: yes
+      gpgkey: https://gitlab.com/paulcarroty/vscodium-deb-rpm-repo/raw/master/pub.gpg
+      state: present
 
-- name: Codium -> install package
-  ansible.builtin.dnf:
-    name: codium
+  - name: codium - install package
+    ansible.builtin.dnf:
+      name: codium
+      state: latest
+when: ansible_distribution == "Fedora"
+
+- name: codium - install
+  homebrew_cask:
+    name: vscodium
     state: latest
+  when: ansible_os_family == "Darwin"

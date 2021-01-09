@@ -9,7 +9,17 @@
 # put dofiles in place
 # set up zsh
 ---
-
-- import_tasks: macos_prereqs.yml
-- import_tasks: homebrew.yml
 - import_tasks: shell.yml
+- import_tasks: dotfiles.yml
+- import_tasks: system.yml
+- import_tasks: languages.yml
+# - import_tasks: coding.yml
+- import_tasks: playbooks/software/anki.yml
+- import_tasks: playbooks/software/alacritty.yml
+- import_tasks: playbooks/software/codium.yml
+- import_tasks: playbooks/software/ctags.yml
+- import_tasks: playbooks/software/neovim.yml
+- import_tasks: playbooks/software/pdfreader.yml
+- import_tasks: playbooks/software/starship.yml
+- import_tasks: playbooks/software/tmux.yml
+- import_tasks: playbooks/software/browsers.yml

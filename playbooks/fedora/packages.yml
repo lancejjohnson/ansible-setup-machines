@@ -20,4 +20,3 @@
     - xclip
     - zlib-devel
   when: ansible_distribution == "Fedora"
-

@@ -5,10 +5,18 @@
   loop:
     - neovim
     - python3-neovim
+  when: ansible_distribution == "Fedora"
 
-# TODO: this is a user specific directory. How to generalize?
-- name: Install minpac for neovim
+- name: neovim - install packages
+  homebrew:
+    name: neovim
+    state: latest
+  when: ansible_distribution == "MacOSX"
+
+- name: neovim - install minpac
   become_user: lance
   ansible.builtin.git:
-    repo: 'https://github.com/k-takata/minpac.git'
-    dest: '/home/lance/.config/nvim/pack/minpac/opt/minpac'
+    repo: https://github.com/k-takata/minpac.git
+    dest: {{ ansible_env.HOME }}/.config/nvim/pack/minpac/opt/minpac
+
+# TODO: Look up how to run vim commands wo being in vim from the thoughtbot mac script

@@ -1,0 +1,7 @@
+---
+- import_tasks: playbooks/fedora/packages.yml
+  when: ansible_distribution == "Fedora"
+
+- import_tasks: playbooks/mac/packages.yml
+  when: ansible_distribution == "MacOSX"
+

@@ -10,4 +10,3 @@
     state: latest
     update_homebrew: yes
   when: ansible_distribution == 'MacOSX'
-
