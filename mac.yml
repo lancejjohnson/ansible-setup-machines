@@ -1,25 +1,8 @@
-# I need to really simplify this considerably
-#
-# Ansible needs to be installed
-# XCode command line tools need to be installed
-# Homebrew needs to be installed
-# Ansbile homebrew community package needs to be installed
-#
-# clone dotfiles
-# put dofiles in place
-# set up zsh
 ---
 - import_tasks: shell.yml
 - import_tasks: dotfiles.yml
-- import_tasks: system.yml
-- import_tasks: languages.yml
-# - import_tasks: coding.yml
-- import_tasks: playbooks/software/anki.yml
-- import_tasks: playbooks/software/alacritty.yml
-- import_tasks: playbooks/software/codium.yml
-- import_tasks: playbooks/software/ctags.yml
-- import_tasks: playbooks/software/neovim.yml
-- import_tasks: playbooks/software/pdfreader.yml
-- import_tasks: playbooks/software/starship.yml
-- import_tasks: playbooks/software/tmux.yml
-- import_tasks: playbooks/software/browsers.yml
+- import_tasks: package_manager.yml
+- import_tasks: packages.yml
+- import_tasks: software.yml
+- import_tasks: fonts.yml
+- import_tasks: asdf.yml

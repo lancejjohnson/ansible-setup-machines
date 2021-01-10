@@ -1,0 +1,20 @@
+---
+- name: download homebrew installer
+  uri:
+    url: https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh
+    method: GET
+    dest: /usr/local/opt/install_homebrew.sh
+    creates: /usr/local/opt/install_homebrew.sh
+  when: ansible_os_family == "Darwin"
+
+- name: install homebrew
+  script: /usr/local/opt/install_homebrew.sh
+  args:
+    creates: /usr/local/bin/brew
+  when: ansible_os_family == "Darwin"
+
+- name: remove homebrew installer
+  file:
+    path: /usr/local/opt/install_homebrew.sh
+    state: absent
+  when: ansible_os_family == "Darwin"

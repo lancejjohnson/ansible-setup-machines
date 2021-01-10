@@ -1,10 +1,10 @@
-- name: install rcm
+- name: install rcm on macOS
   homebrew:
     name: rcm
     state: latest
   when: ansible_distribution == "MacOX"
 
-- name: install rcm
+- name: install rcm on Fedora
   become: yes
   dnf:
     name: rcm
@@ -26,35 +26,13 @@
     state: link
 
 - name: link dotfiles
-  command: rcup -d {{ ansible_env.HOME}}/.dotfiles -f
+  command: rcup -f -d {{ ansible_env.HOME}}/.dotfiles
 
-# - name: link dotfiles
-#   become_user: lance
-#   ansible.builtin.file:
-#     src: {{ ansible_env.HOME}}.dotfiles/{{ item.src }}
-#     dest: {{ ansible_env.HOME}}.{{ item.dest }}
-#     state: link
-#     owner: lance
-#     group: lance
-#   loop:
-#     - { src: aliases, dest: aliases }
-#     - { src: config/alacritty, dest: config/alacritty }
-#     - { src: config/starship.toml, dest: config/starship.toml }
-#     - { src: ctags.d, dest: ctags.d }
-#     - { src: gitconfig, dest: gitconfig }
-#     - { src: gitignore_global, dest: gitignore_global }
-#     - { src: tmux.conf, dest: tmux.conf }
-#     - { src: tool-versions, dest: tool-versions }
-#     - { src: vimrc, dest: vimrc }
-#     - { src: zshrc, dest: zshrc }
-#     - { src: zsh, dest: zsh }
-#     - { src: config/nvim/init.vim, dest: config/nvim/init.vim }
-#     - { src: config/nvim/packages.vim, dest: config/nvim/packages.vim }
-
+# TODO: Change this tat installation to a direct download of the file from git
 - name: install binaries and scripts
   become: yes
   ansible.builtin.copy:
-    src: {{ ansible_env.HOME}}/.dotfiles/bin/{{ item }}
+    src: {{ ansible_env.HOME }}/.dotfiles/bin/{{ item }}
     dest: /usr/local/bin/{{ item }}
     owner: lance
     group: lance

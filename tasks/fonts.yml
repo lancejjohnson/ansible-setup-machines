@@ -1,0 +1,4 @@
+---
+- name: Install fonts using brew bundle
+  command: brew bundle --file={{ ansible_env.HOME }}/.dotfiles/Fontfile
+  when: ansible_os_family == "Darwin"
