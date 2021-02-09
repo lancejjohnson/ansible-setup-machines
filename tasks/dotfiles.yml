@@ -16,24 +16,24 @@
   git:
     repo: git@github.com:lancejjohnson/dotfiles.git
     clone: yes
-    dest: {{ ansible_env.HOME }}/.dotfiles
+    dest: "{{ ansible_env.HOME }}/.dotfiles"
     force: no
 
 - name: configure rcup
   file:
-    src: {{ ansible_env.HOME }}/.dotfiles/rcrc
-    dest: {{ ansible_env.HOME }}/.rcrc
+    src: "{{ ansible_env.HOME }}/.dotfiles/rcrc"
+    dest: "{{ ansible_env.HOME }}/.rcrc"
     state: link
 
 - name: link dotfiles
-  command: rcup -f -d {{ ansible_env.HOME}}/.dotfiles
+  command: rcup -f -d "{{ ansible_env.HOME}}/.dotfiles"
 
 # TODO: Change this tat installation to a direct download of the file from git
 - name: install binaries and scripts
   become: yes
   ansible.builtin.copy:
-    src: {{ ansible_env.HOME }}/.dotfiles/bin/{{ item }}
-    dest: /usr/local/bin/{{ item }}
+    src: "{{ ansible_env.HOME }}/.dotfiles/bin/{{ item }}"
+    dest: "/usr/local/bin/{{ item }}"
     owner: lance
     group: lance
     mode: u+rx,g+rx,o-rwx
