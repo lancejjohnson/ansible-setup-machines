@@ -3,7 +3,7 @@
   git:
     repo: https://github.com/asdf-vm/asdf.git
     version: v0.8.0
-    dest: {{ ansible_env.HOME }}/.asdf
+    dest: "{{ ansible_env.HOME }}/.asdf"
     clone: yes
     force: no
 
