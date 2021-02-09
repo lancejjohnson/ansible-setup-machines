@@ -23,5 +23,5 @@
   when: ansible_distribution == "Fedora"
 
 - name: Install system packages
-  command: brew bundle --file={{ ansible_env.HOME }}/.dotfiles/Brewfile
+  command: brew bundle --file="{{ ansible_env.HOME }}/.dotfiles/Brewfile"
   when: ansible_os_family == "Darwin"
