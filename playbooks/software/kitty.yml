@@ -1,0 +1,12 @@
+- name: install kitty
+  dnf:
+    name: kitty
+    state: latest
+  when: ansible_distribution == 'Fedora'
+
+- name: install kitty
+  community.general.homebrew:
+    name: kitty
+    state: latest
+    update_homebrew: yes
+  when: ansible_distribution == 'MacOSX'

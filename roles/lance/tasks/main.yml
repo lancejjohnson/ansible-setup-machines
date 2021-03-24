@@ -12,6 +12,5 @@
 - import_tasks: shell.yml
 - import_tasks: dotfiles.yml
 - import_tasks: playbooks/software/anki.yml
-- import_tasks: playbooks/software/neovim.yml
 - import_tasks: playbooks/software/pdfreader.yml
 - import_tasks: playbooks/software/starship.yml

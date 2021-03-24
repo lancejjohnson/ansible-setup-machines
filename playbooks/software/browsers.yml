@@ -5,3 +5,33 @@
     name: chromium
     state: latest
   when: ansible_distribution == "Fedora"
+
+- name: firefox
+  become: yes
+  ansible.builtin.dnf:
+    name: firefox
+    state: latest
+  when: ansible_distribution == "Fedora"
+
+- name: brave
+  block:
+    - name: plugins-core
+      become: yes
+      ansible.builtin.dnf:
+        name: dnf-plugins-core
+        state: latest
+
+    - name: brave > repository
+      become: yes
+      shell: "dnf config-manager --add-repo https://brave-browser-rpm-release.s3.brave.com/x86_64/"
+
+    - name: brave > rpm
+      become: yes
+      shell: "rpm --import https://brave-browser-rpm-release.s3.brave.com/brave-core.asc"
+
+    - name: brave > package
+      become: yes
+      ansible.builtin.dnf:
+        name: brave-browser
+        state: latest
+  when: ansible_distribution == "Fedora"
