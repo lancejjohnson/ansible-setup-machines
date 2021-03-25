@@ -5,6 +5,9 @@
   loop:
     - autoconf
     - automake
+    - aws
+    - awscli
+    - cmake
     - curl
     - flatpak
     - fzf
@@ -15,6 +18,12 @@
     - ncurses-devel
     - openssl
     - openssl-devel
+    - postgresql
+    - postgresql-server
+    - postgresql-contrib
+    - libpq-devel
+    - readline-devel
+    - redis
     - ripgrep
     - tmux
     - xclip
