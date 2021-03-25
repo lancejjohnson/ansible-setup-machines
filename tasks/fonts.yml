@@ -1,4 +1,19 @@
 ---
-- name: Install fonts using brew bundle
-  command: brew bundle --file="{{ ansible_env.HOME }}/.dotfiles/Fontfile"
-  when: ansible_os_family == "Darwin"
+# - name: Install fonts using brew bundle
+#     command: brew bundle --file="{{ ansible_env.HOME }}/.dotfiles/Fontfile"
+#   when: ansible_os_family == "Darwin"
+
+- name: Install fonts (Fedora)
+  become: yes
+  ansible.builtin.dnf:
+    name: "{{ item }}"
+  loop:
+    - fira-code-fonts
+    - mozilla-fira-fonts-common
+    - mozilla-fira-mono-fonts
+    - mozilla-fira-sans-fonts
+    - google-roboto-condensed-fonts
+    - google-roboto-fonts
+    - google-roboto-mono-fonts
+    - google-roboto-slab-fonts
+  when: ansible_distribution == "Fedora"

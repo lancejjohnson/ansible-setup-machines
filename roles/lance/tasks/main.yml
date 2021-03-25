@@ -12,6 +12,7 @@
 - import_tasks: shell.yml
 - import_tasks: dotfiles.yml
 - import_tasks: asdf.yml
+- import_tasks: fonts.yml
 - import_tasks: password_manager.yml
 - import_tasks: playbooks/software/anki.yml
 - import_tasks: playbooks/software/pdfreader.yml
