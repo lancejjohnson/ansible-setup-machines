@@ -1,0 +1,6 @@
+---
+- name: Signal
+  community.general.flatpak:
+    name: https://dl.flathub.org/repo/appstream/org.signal.Signal.flatpakref
+    state: present
+  when: ansible_distribution == "Fedora"
