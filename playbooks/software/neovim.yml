@@ -22,7 +22,8 @@
 #     mode: 0700
 
 - name: neovim - install minpac
-  become: yes 
+  become: yes
+  become_user: lance
   ansible.builtin.git:
     repo: https://github.com/k-takata/minpac.git
     dest: "${HOME}/.config/nvim/pack/minpac/opt/minpac"

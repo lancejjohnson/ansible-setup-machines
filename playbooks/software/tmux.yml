@@ -15,6 +15,6 @@
   become_user: lance
   git:
     repo: https://github.com/tmux-plugins/tpm
-    dest: {{ ansible_env.HOME}}/.tmux/plugins/tpm
+    dest: "${HOME}/.tmux/plugins/tpm"
     clone: yes
     force: no

@@ -6,23 +6,23 @@ To put something in the directory of an arbitrary user you need to user `${HOME}
 
 - gnome-tweak-tools
 - ~~rcm~~ (I don't want to use this anymore. Just make it a repeatable ansible task)
-- xclip
-- zsh
-- neovim
-- alacritty
-- asdf
-- tmux
-- flatpak
-- ripgrep
-- ctags
-- openssl
-- openssl-devel
-- automake
-- autoconf
-- ncurses-devel
-- zeal
-- postgresql
-- python3
+- [x] alacritty
+- [ ] asdf
+- [x] autoconf
+- [x] automake
+- [x] ctags
+- [x] flatpak
+- [x] ncurses-devel
+- [x] neovim
+- [x] openssl
+- [x] openssl-devel
+- [ ] postgresql
+- [x] python3
+- [x] ripgrep
+- [x] tmux
+- [x] xclip
+- [ ] zeal
+- [x] zsh
 
 
 # Flatpak or Snap packages

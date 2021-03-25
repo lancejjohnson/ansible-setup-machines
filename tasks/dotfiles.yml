@@ -17,14 +17,14 @@
   debug:
     msg: "Adding files to ${HOME}/.dotfiles"
 
-- name: clone dotfiles
-  become: yes
-  become_user: lance 
-  git:
-    repo: https://github.com/lancejjohnson/dotfiles
-    clone: yes
-    dest: "${HOME}/.dotfiles"
-    force: no
+# - name: clone dotfiles
+#   become: yes
+#   become_user: lance 
+#   git:
+#     repo: https://github.com/lancejjohnson/dotfiles
+#     clone: yes
+#     dest: "${HOME}/.dotfiles"S
+#     force: no
 
 - name: configure rcup
   become: yes

@@ -1,0 +1,16 @@
+---
+- name: Zoom - download rpm
+  get_url:
+    url: https://zoom.us/client/latest/zoom_x86_64.rpm
+    dest: /tmp
+  when: ansible_distribution == "Fedora"
+
+- name: Zoom - install rpm
+  become: yes
+  dnf:
+    name: /tmp/zoom_x86_64.rpm
+    state: latest
+    disable_gpg_check: yes
+  when: ansible_distribution == "Fedora"
+
+

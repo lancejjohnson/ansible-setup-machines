@@ -35,11 +35,19 @@ To run a specific playbook in Ansible:
 ansible-playbook -K path/to/playbook.yml
 ```
 
-To run the full suite:
+To run the full suite with pull:
 
 ```sh
 ansible-pull -u https://github.com/lancejjohnson/ansible-setup-machines
 ```
+
+To run the full suite locally:
+
+```sh
+ansible-playbook -c local -i localhost, local.yaml
+```
+
+
 
 For more information and other ways to run Ansible, see:
 

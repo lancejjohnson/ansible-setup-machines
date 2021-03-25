@@ -1,11 +1,27 @@
 ---
 - name: asdf - install
+  become: true
+  become_user: lance
   git:
     repo: https://github.com/asdf-vm/asdf.git
     version: v0.8.0
-    dest: "{{ ansible_env.HOME }}/.asdf"
+    dest: "${HOME}/.asdf"
     clone: yes
     force: no
+
+# - name: "Install asdf plugins"
+#   become: true
+#   become_user: lance
+#   ignore_errors: True
+#   shell:
+#     chdir: "${HOME}"
+#     cmd: "asdf plugin add {{ item.name }}"
+#     creates: "${HOME}/.asdf/plugins/{{ item.name }}"
+#     executable: "${HOME}/.asdf/asdf.sh"
+#   loop:
+#     - { name: erlang }
+#     - { name: elixir }
+#     - { name: ruby }
 
 # TODO: Figure out how to do plugins from script
 # see https://github.com/markosamuli/ansible-asdf/blob/master/tasks/plugins.yml
