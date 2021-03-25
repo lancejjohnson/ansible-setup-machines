@@ -1,3 +1,7 @@
+# Ansible notes
+
+To put something in the directory of an arbitrary user you need to user `${HOME}/some/path` instead of `{{ ansible_env.HOME}}/some/path`. The latter will always be the directory of the user running ansible.
+
 # Packages
 
 - gnome-tweak-tools
@@ -26,7 +30,12 @@
 - signal
 - slack
 
-# Tasks
+# TODO
+
+- dconf
+- 1password
+- zoom
+- register sublime text
 
 asdf plugin add
   - rust

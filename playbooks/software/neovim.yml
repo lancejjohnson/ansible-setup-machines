@@ -13,10 +13,18 @@
     state: latest
   when: ansible_distribution == "MacOSX"
 
+# - name: neovim - prep minpac
+#   ansible.builtin.file:
+#     path: "${HOME}/.config/nvim/pack/minpac/opt"
+#     state: directory
+#     owner: lance
+#     group: lance
+#     mode: 0700
+
 - name: neovim - install minpac
-  become_user: lance
+  become: yes 
   ansible.builtin.git:
     repo: https://github.com/k-takata/minpac.git
-    dest: {{ ansible_env.HOME }}/.config/nvim/pack/minpac/opt/minpac
+    dest: "${HOME}/.config/nvim/pack/minpac/opt/minpac"
 
 # TODO: Look up how to run vim commands wo being in vim from the thoughtbot mac script

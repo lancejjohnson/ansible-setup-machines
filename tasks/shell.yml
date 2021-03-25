@@ -9,7 +9,7 @@
 - name: Link zsh
   become: yes
   ansible.builtin.file:
-    path: /usr/bin/zsh
+    src: /usr/bin/zsh
     dest: /usr/local/bin/zsh
     state: link
   when: ansible_distribution == "Fedora"
@@ -24,4 +24,4 @@
   become: yes
   user:
     name: lance
-    shell: /usr/local/bin/zsh
+    shell: /usr/bin/zsh

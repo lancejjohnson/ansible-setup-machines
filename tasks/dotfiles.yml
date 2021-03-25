@@ -11,31 +11,31 @@
     state: latest
   when: ansible_distribution == "Fedora"
 
-- name: clone dotfiles
+- name: Where did those files go
+  become: yes
   become_user: lance
+  debug:
+    msg: "Adding files to ${HOME}/.dotfiles"
+
+- name: clone dotfiles
+  become: yes
+  become_user: lance 
   git:
-    repo: git@github.com:lancejjohnson/dotfiles.git
+    repo: https://github.com/lancejjohnson/dotfiles
     clone: yes
-    dest: "{{ ansible_env.HOME }}/.dotfiles"
+    dest: "${HOME}/.dotfiles"
     force: no
 
 - name: configure rcup
+  become: yes
+  become_user: lance
   file:
-    src: "{{ ansible_env.HOME }}/.dotfiles/rcrc"
-    dest: "{{ ansible_env.HOME }}/.rcrc"
+    src: "${HOME}/.dotfiles/rcrc"
+    dest: "${HOME}/.rcrc"
     state: link
 
 - name: link dotfiles
-  command: rcup -f -d "{{ ansible_env.HOME}}/.dotfiles"
-
-# TODO: Change this tat installation to a direct download of the file from git
-- name: install binaries and scripts
   become: yes
-  ansible.builtin.copy:
-    src: "{{ ansible_env.HOME }}/.dotfiles/bin/{{ item }}"
-    dest: "/usr/local/bin/{{ item }}"
-    owner: lance
-    group: lance
-    mode: u+rx,g+rx,o-rwx
-  loop:
-    - tat
+  become_user: lance
+  command: rcup -f -d "${HOME}/.dotfiles"
+
