@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+
+set -e
+
+sudo -v
+
+echo "Running ansible locally"
+
+ansible-playbook -c local -i localhost, local.yml
