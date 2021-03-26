@@ -17,3 +17,29 @@
     - google-roboto-mono-fonts
     - google-roboto-slab-fonts
   when: ansible_distribution == "Fedora"
+
+- name: Install Hack font (Fedora)
+  block:
+    - name: Download Hack font
+      get_url:
+        url: https://github.com/source-foundry/Hack/releases/download/v3.003/Hack-v3.003-ttf.zip
+        dest: /tmp
+
+    - name: Unzip Hack font
+      unarchive:
+        src: /tmp/Hack-v3.003-ttf.zip
+        dest: /tmp
+
+    - name: Move Hack font files
+      copy:
+        src: "/tmp/ttf/{{ item }}"
+        dest: "/usr/share/fonts/{{ item }}"
+      loop:
+        - Hack-Bold.ttf
+        - Hack-BoldItalic.ttf
+        - Hack-Italic.ttf
+        - Hack-Regular.ttf
+
+  when: ansible_distribution == "Fedora"
+
+
