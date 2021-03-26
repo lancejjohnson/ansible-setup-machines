@@ -14,18 +14,25 @@
     - fzf
     - gcc
     - gcc-c++
+    - glib2-devel
     - htop
+    - inkscape
+    - libpq-devel
     - make
+    - meld
+    - meson
     - ncurses-devel
     - openssl
     - openssl-devel
+    - optipng
     - postgresql
-    - postgresql-server
     - postgresql-contrib
-    - libpq-devel
+    - postgresql-server
+    - ranger
     - readline-devel
     - redis
     - ripgrep
+    - sassc
     - tmux
     - xclip
     - zlib-devel
