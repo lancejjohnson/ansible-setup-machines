@@ -1,9 +1,0 @@
----
-- import_tasks: packages.yml
-- import_tasks: playbooks/software/alacritty.yml
-- import_tasks: playbooks/software/browsers.yml
-# - import_tasks: playbooks/software/codium.yml
-- import_tasks: playbooks/software/ctags.yml
-- import_tasks: playbooks/software/kitty.yml
-- import_tasks: playbooks/software/neovim.yml
-- import_tasks: playbooks/software/sublimetext.yml

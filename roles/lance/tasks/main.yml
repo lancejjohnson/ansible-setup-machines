@@ -1,22 +1,32 @@
-- include_role:
-    name: common
+---
+- name: Install desktop environment packages
+  ansible.builtin.dnf:
+    name: "{{ item }}"
+    state: latest
+  loop:
+    - gnome-tweaks
+  when: ansible_distribution == "Fedora"
 
-- import_tasks: prereqs.yml
-
-- include_role:
-    name: workstation
-
-- include_role:
-    name: developer
-
+- import_tasks: filesystem.yml
 - import_tasks: shell.yml
 - import_tasks: dotfiles.yml
+- import_tasks: packages.yml
 - import_tasks: asdf.yml
 - import_tasks: fonts.yml
 - import_tasks: password_manager.yml
+
+- import_tasks: playbooks/software/alacritty.yml
 - import_tasks: playbooks/software/anki.yml
+- import_tasks: playbooks/software/browsers.yml
+- import_tasks: playbooks/software/codium.yml
+- import_tasks: playbooks/software/ctags.yml
+- import_tasks: playbooks/software/kitty.yml
+- import_tasks: playbooks/software/neovim.yml
 - import_tasks: playbooks/software/pdfreader.yml
 - import_tasks: playbooks/software/signal.yml
 - import_tasks: playbooks/software/starship.yml
+- import_tasks: playbooks/software/sublimetext.yml
 - import_tasks: playbooks/software/tmux.yml
 - import_tasks: playbooks/software/zoom.yml
+
+

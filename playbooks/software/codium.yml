@@ -1,5 +1,4 @@
 ---
-tasks:
 - name: Install Codium
   block:
     - name: codium - add GPG key for repository
@@ -7,7 +6,7 @@ tasks:
       ansible.builtin.rpm_key:
         key: https://gitlab.com/paulcarroty/vscodium-deb-rpm-repo/raw/master/pub.gpg
         state: present
-  
+
     - name: codium - add repository
       become: yes
       ansible.builtin.yum_repository:
@@ -18,7 +17,7 @@ tasks:
         gpgcheck: yes
         gpgkey: https://gitlab.com/paulcarroty/vscodium-deb-rpm-repo/raw/master/pub.gpg
         state: present
-  
+
     - name: codium - install package
       ansible.builtin.dnf:
         name: codium

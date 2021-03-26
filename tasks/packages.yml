@@ -6,17 +6,34 @@
   loop:
     - autoconf
     - automake
+    - aws
+    - awscli
+    - clang
+    - cmake
     - curl
     - flatpak
     - fzf
     - gcc
     - gcc-c++
+    - glib2-devel
     - htop
+    - inkscape
+    - libpq-devel
     - make
+    - meld
+    - meson
     - ncurses-devel
     - openssl
     - openssl-devel
+    - optipng
+    - postgresql
+    - postgresql-contrib
+    - postgresql-server
+    - ranger
+    - readline-devel
+    - redis
     - ripgrep
+    - sassc
     - tmux
     - xclip
     - zlib-devel
