@@ -34,6 +34,7 @@
     - redis
     - ripgrep
     - sassc
+    - shared-mime-info
     - tmux
     - xclip
     - zlib-devel

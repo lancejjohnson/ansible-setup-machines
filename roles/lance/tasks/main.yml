@@ -11,6 +11,7 @@
 - import_tasks: shell.yml
 - import_tasks: dotfiles.yml
 - import_tasks: packages.yml
+- import_tasks: docker.yml
 - import_tasks: asdf.yml
 - import_tasks: fonts.yml
 - import_tasks: password_manager.yml
